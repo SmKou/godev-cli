@@ -1,6 +1,7 @@
 package todo_test
 
 import (
+	"os"
 	"testing"
 	"todo"
 )
@@ -41,10 +42,9 @@ func TestDelete(t *testing.T) {
 	tasks := []string{
 		"New Task 1",
 		"New Task 2",
-		"New Task 3"
-	}
+		"New Task 3"}
 
-	for _, v := range(tasks) {
+	for _, v := range tasks {
 		l.Add(v)
 	}
 
@@ -55,7 +55,7 @@ func TestDelete(t *testing.T) {
 	l.Delete(2)
 
 	if len(l) != 2 {
-		t.Errorf("expected list length %d, got %d instead", 2, len(1))
+		t.Errorf("expected list length %d, got %d instead", 2, len(l))
 	}
 
 	if l[1].Task != tasks[2] {
